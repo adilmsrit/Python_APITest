@@ -11,8 +11,6 @@ json_response = json.loads(response.text)
 print(json_response)
 
 # Fetch response using Json Path
-pages = jsonpath.jsonpath(json_response,'total_pages')
-# We get the repsonse as List so we print the first item sa below.
-print(pages[0])
-
-assert pages[0]==4
+for i in range(0, 3):
+    firstName = jsonpath.jsonpath(json_response, 'data['+str(i)+'].first_name')
+    print(firstName[0])
